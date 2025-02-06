@@ -1,0 +1,16 @@
+
+# Construct the original 5x3 matrix
+matrix_5x3 <- matrix(1:15, nrow=5, ncol=3, byrow=FALSE)
+
+# Sort only the first column in descending order
+matrix_5x3[,1] <- sort(matrix_5x3[,1], decreasing=TRUE)
+
+# Extract the top four elements of the last column
+top_four_last_column <- matrix_5x3[1:4, 3]
+
+# Create a new 2x2 matrix using these four elements
+matrix_2x2 <- matrix(top_four_last_column, nrow=2, ncol=2, byrow=TRUE)
+
+# Print the new 2x2 matrix
+print("New 2x2 matrix using the top four elements of the last column:")
+print(matrix_2x2)
