@@ -1,0 +1,24 @@
+
+A <- matrix(c(1, 2, 7), nrow=3, ncol=1)
+B <- matrix(c(3, 4, 8), nrow=3, ncol=1)
+
+AT_B <- t(A) %*% B
+AAT <- A %*% t(A)  # Compute A . A^T
+BT_AAT <- t(B) %*% AAT
+
+BBT <- B %*% t(B)
+I3 <- diag(3)
+M <- BBT + AAT - 100 * I3
+
+if (det(M) != 0) {
+  M_inv <- solve(M)  # Compute the inverse
+  print("Inverse of M:")
+  print(M_inv)
+} else {
+  print("Matrix is not invertible.")
+}
+print("A^T . B:")
+print(AT_B)
+
+print("B^T . (A . A^T):")
+print(BT_AAT)
